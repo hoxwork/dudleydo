@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Dudley Do: How-To Builder",
+  "version": "1.0",
+  "description": "Records clicks and actions to build a step-by-step guide.",
+  "permissions": [
+    "activeTab",  // To work on the current tab
+    "scripting",  // To inject the content.js script
+    "storage"     // To save the steps
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png" // You'd need to create a 128x128 icon
+  },
+  "icons": {
+    "128": "icon.png"
+  }
+}

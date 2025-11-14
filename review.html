@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Review Your Guide</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #f4f7f6;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      overflow: hidden;
+    }
+    header {
+      padding: 20px 30px;
+      border-bottom: 1px solid #e0e0e0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    h1 {
+      margin: 0;
+      color: #333;
+    }
+    .controls button {
+      background-color: #007aff;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 14px;
+      margin-left: 10px;
+      transition: background-color 0.2s;
+    }
+    .controls button:hover {
+      background-color: #0056b3;
+    }
+    #export-md {
+      background-color: #6c757d;
+    }
+    #export-md:hover {
+      background-color: #5a6268;
+    }
+    #steps-container {
+      padding: 10px 30px 30px;
+    }
+    .step-card {
+      display: flex;
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      padding: 20px;
+      align-items: flex-start;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      position: relative;
+    }
+    .step-card:hover {
+      border-color: #007aff;
+    }
+    .drag-handle {
+      width: 20px;
+      height: 100%;
+      cursor: move;
+      color: #aaa;
+      padding-right: 15px;
+      font-size: 24px;
+      line-height: 1.2;
+      user-select: none;
+    }
+    .step-content {
+      display: flex;
+      width: 100%;
+      gap: 20px;
+    }
+    .screenshot-wrapper {
+      flex: 0 0 250px;
+    }
+    .screenshot-wrapper img {
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      object-fit: contain;
+    }
+    .step-number {
+      font-size: 16px;
+      font-weight: 600;
+      color: #007aff;
+      margin-bottom: 10px;
+    }
+    .edit-area {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .edit-area input,
+    .edit-area textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      font-family: inherit;
+      box-sizing: border-box; /* Important for 100% width */
+    }
+    .edit-area input {
+      font-weight: 600;
+    }
+    .edit-area textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+    .delete-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: #aaa;
+      cursor: pointer;
+      padding: 5px;
+    }
+    .delete-btn:hover {
+      color: #d9534f;
+    }
+/* New styles for the Guide Name input */
+    .header-inputs {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .header-inputs label {
+      font-weight: 600;
+      color: #333;
+      white-space: nowrap; /* Prevent wrap */
+    }
+    #guide-name-input {
+      padding: 8px 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      flex-grow: 1;
+      min-width: 250px;
+    }
+</style>
+</head>
+<body>
+
+  <div class="container">
+<header>
+    <h1>Review Your Guide</h1>
+    <div class="header-inputs">
+        <label for="guide-name-input">Guide Name:</label>
+        <input type="text" id="guide-name-input" value="How-To Guide" placeholder="Enter a descriptive guide name">
+    </div>
+    <div class="controls">
+        <button id="export-html">Export to HTML</button>
+        <button id="export-md">Export to Markdown</button>
+    </div>
+</header>    
+    <div id="steps-container">
+      <div class="step-card">
+        <span class="drag-handle">⠿</span>
+        <div class="step-content">
+          <div class="screenshot-wrapper">
+            <span class="step-number">Step 1</span>
+            <img src="icon.png" alt="Screenshot of step">
+          </div>
+          <div class="edit-area">
+            <input type="text" value="Loading...">
+            <textarea>Loading description...</textarea>
+          </div>
+        </div>
+        <button class="delete-btn">&times;</button>
+      </div>
+      </div>
+  </div>
+
+  <script src="Sortable.min.js"></script>  
+  <script src="review.js"></script>
+</body>
+</html>
